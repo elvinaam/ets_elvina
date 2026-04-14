@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mist_blue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post New Challenge"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/navy_main"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temukan solusi inovatif dari mahasiswa terbaik."
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+            android:textColor="@color/near_black"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Judul Tantangan"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:textColor="@color/navy_main"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+            <EditText
+                android:id="@+id/etJudulChallenge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Masukan nama proyek..."
+                android:paddingHorizontal="16dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="16sp"
+                android:textColor="@color/near_black"
+                android:inputType="text"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kategori SDGs"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:textColor="@color/navy_main"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+            <EditText
+                android:id="@+id/etKategoriSDG"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Contoh: SDGs 9 - Inovasi"
+                android:paddingHorizontal="16dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="16sp"
+                android:textColor="@color/near_black"
+                android:inputType="text"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Batas Waktu (Deadline)"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:textColor="@color/navy_main"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+            <EditText
+                android:id="@+id/etDeadlineChallenge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="DD/MM/YYYY"
+                android:paddingHorizontal="16dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="16sp"
+                android:textColor="@color/near_black"
+                android:inputType="date"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi Masalah"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:textColor="@color/navy_main"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+            <EditText
+                android:id="@+id/etDeskripsiMasalah"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Jelaskan detail masalah industri Anda..."
+                android:gravity="top"
+                android:padding="16dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="16sp"
+                android:textColor="@color/near_black"
+                android:inputType="textMultiLine"/>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnPostChallenge"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Publikasikan Tantangan"
+            android:textAllCaps="false"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:backgroundTint="@color/true_blue"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="16dp" />
+
+    </LinearLayout>
+</ScrollView>
