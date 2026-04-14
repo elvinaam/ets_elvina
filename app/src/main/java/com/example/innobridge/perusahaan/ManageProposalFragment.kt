@@ -1,9 +1,7 @@
 package com.example.innobridge.perusahaan
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,21 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.innobridge.R
 import com.google.android.material.card.MaterialCardView
 
-class ManageProposalFragment : Fragment() {
+class ManageProposalFragment : Fragment(R.layout.fragment_manage_proposal) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_manage_proposal, container, false)
-    }
+    private lateinit var rvProposals: RecyclerView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rvProposals = view.findViewById<RecyclerView>(R.id.rvProposals)
+        rvProposals = view.findViewById(R.id.rvProposals)
 
-        // Data dummy untuk simulasi list proposal mahasiswa
         val dataProposal = listOf(
             "Solusi AI untuk SDGs 9",
             "Sistem Monitoring Air Bersih",
@@ -34,12 +26,12 @@ class ManageProposalFragment : Fragment() {
             "Manajemen Limbah Digital"
         )
 
-        rvProposals.layoutManager = LinearLayoutManager(context)
+        rvProposals.layoutManager = LinearLayoutManager(requireContext())
         rvProposals.adapter = ProposalAdapter(dataProposal)
     }
 
-    // --- ADAPTER DALAM SATU FILE ---
-    private class ProposalAdapter(private val listProposal: List<String>) :
+    // Adapter
+    class ProposalAdapter(private val listProposal: List<String>) :
         RecyclerView.Adapter<ProposalAdapter.ViewHolder>() {
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -57,7 +49,6 @@ class ManageProposalFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.tvNama.text = "Mahasiswa Inovator ${position + 1}"
             holder.tvJudul.text = listProposal[position]
-            // Label status otomatis berwarna True Blue dari XML
         }
 
         override fun getItemCount(): Int = listProposal.size

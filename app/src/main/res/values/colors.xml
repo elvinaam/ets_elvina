@@ -2,10 +2,11 @@
 <resources>
     <color name="black">#212121</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="navy_main">#042E7B</color> [cite: 122, 124]
-    <color name="true_blue">#004EE0</color> [cite: 126, 129]
-    <color name="electric_blue">#1883FF</color> [cite: 132, 136]
-    <color name="sky_blue">#99CAFF</color> [cite: 138, 142]
-    <color name="mist_blue">#E3F2FF</color> [cite: 144, 149]
-    <color name="near_black">#212121</color> [cite: 153]
+
+    <color name="navy_main">#042E7B</color>
+    <color name="true_blue">#004EE0</color>
+    <color name="electric_blue">#1883FF</color>
+    <color name="sky_blue">#99CAFF</color>
+    <color name="mist_blue">#E3F2FF</color>
+    <color name="near_black">#212121</color>
 </resources>

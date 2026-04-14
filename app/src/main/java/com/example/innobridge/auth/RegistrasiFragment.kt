@@ -12,33 +12,67 @@ import com.example.innobridge.R
 
 class RegistrasiFragment : Fragment(R.layout.fragment_registrasi) {
 
+    private lateinit var etNama: EditText
+    private lateinit var etEmail: EditText
+    private lateinit var etPassword: EditText
+    private lateinit var btnRegister: Button
+    private lateinit var btnLogin: TextView
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val nama = view.findViewById<EditText>(R.id.etNama)
-        val email = view.findViewById<EditText>(R.id.etEmail)
-        val password = view.findViewById<EditText>(R.id.etPassword)
-        val btnRegister = view.findViewById<Button>(R.id.btnRegister)
-        val btnLogin = view.findViewById<TextView>(R.id.btnLogin)
+        // 🔹 Inisialisasi View
+        etNama = view.findViewById(R.id.etNama)
+        etEmail = view.findViewById(R.id.etEmail)
+        etPassword = view.findViewById(R.id.etPassword)
+        btnRegister = view.findViewById(R.id.btnRegister)
+        btnLogin = view.findViewById(R.id.btnLogin)
 
+        // 🔹 Aksi tombol register
         btnRegister.setOnClickListener {
-            val n = nama.text.toString()
-            val e = email.text.toString()
-            val p = password.text.toString()
-
-            if (n.isNotEmpty() && e.isNotEmpty() && p.isNotEmpty()) {
-                Toast.makeText(requireContext(), "Registrasi Berhasil", Toast.LENGTH_SHORT).show()
-
-                // 🔙 Kembali ke login menggunakan popBackStack agar lebih efisien
-                findNavController().popBackStack()
-            } else {
-                Toast.makeText(requireContext(), "Semua field wajib diisi!", Toast.LENGTH_SHORT).show()
-            }
+            handleRegister()
         }
 
+        // 🔹 Kembali ke login
         btnLogin.setOnClickListener {
-            // 🔙 Kembali ke login
             findNavController().popBackStack()
         }
+    }
+
+    private fun handleRegister() {
+        val nama = etNama.text.toString().trim()
+        val email = etEmail.text.toString().trim()
+        val password = etPassword.text.toString().trim()
+
+        // ✅ Validasi input
+        if (nama.isEmpty()) {
+            etNama.error = "Nama tidak boleh kosong"
+            etNama.requestFocus()
+            return
+        }
+
+        if (email.isEmpty()) {
+            etEmail.error = "Email tidak boleh kosong"
+            etEmail.requestFocus()
+            return
+        }
+
+        if (password.isEmpty()) {
+            etPassword.error = "Password tidak boleh kosong"
+            etPassword.requestFocus()
+            return
+        }
+
+        if (password.length < 6) {
+            etPassword.error = "Password minimal 6 karakter"
+            etPassword.requestFocus()
+            return
+        }
+
+        // ✅ Simulasi registrasi berhasil
+        Toast.makeText(requireContext(), "Registrasi Berhasil!", Toast.LENGTH_SHORT).show()
+
+        // 🔙 Kembali ke Login
+        findNavController().popBackStack()
     }
 }

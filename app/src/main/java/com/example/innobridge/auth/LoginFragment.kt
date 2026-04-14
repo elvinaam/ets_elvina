@@ -7,8 +7,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.innobridge.R
+import com.example.innobridge.mahasiswa.BerandaFragment
+import com.example.innobridge.perusahaan.PostChallengeFragment
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -27,14 +28,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             if (e.isNotEmpty() && p.isNotEmpty()) {
 
-                // 🔥 Dummy Auth + Role
-                val role = if (e.contains("mhs")) "mahasiswa" else "perusahaan"
+                // 🔥 Dummy role
+                val fragment = if (e.contains("mhs")) {
+                    BerandaFragment() // mahasiswa
+                } else {
+                    PostChallengeFragment() // perusahaan
+                }
 
-                Toast.makeText(requireContext(), "Login Berhasil sebagai $role", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Login Berhasil", Toast.LENGTH_SHORT).show()
 
-                // 🔀 Navigasi (ID disesuaikan dengan nav_graph.xml)
-                // Karena destination 'home' belum ada di nav_graph, baris ini dikomentari agar tidak error
-                // findNavController().navigate(R.id.action_loginFragment_to_home)
+                // 🔀 PINDAH FRAGMENT (AMAN)
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.mainContainer, fragment)
+                    .commit()
 
             } else {
                 Toast.makeText(requireContext(), "Isi semua field!", Toast.LENGTH_SHORT).show()
@@ -42,8 +48,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         btnRegister.setOnClickListener {
-            // Memperbaiki baris 44: Menggunakan ID action yang benar dari nav_graph.xml
-            findNavController().navigate(R.id.action_loginFragment_to_registrasiFragment)
+            // 🔀 PINDAH KE REGISTER (tanpa Navigation)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.mainContainer, RegistrasiFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 }
