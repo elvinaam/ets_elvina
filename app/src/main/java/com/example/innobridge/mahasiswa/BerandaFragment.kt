@@ -20,7 +20,7 @@ class BerandaFragment : Fragment(R.layout.fragment_beranda) {
         val listChallenge = listOf(
             Challenge(
                 "Smart Waste Management",
-                "PT EcoTechh",
+                "PT EcoTech",
                 "Lingkungan",
                 "Solusi pengelolaan sampah berbasis IoT untuk kota pintar."
             ),
