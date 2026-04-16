@@ -3,6 +3,7 @@ package com.example.innobridge.mahasiswa
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.innobridge.R
@@ -16,43 +17,15 @@ class BerandaFragment : Fragment(R.layout.fragment_beranda) {
 
         rvChallenge = view.findViewById(R.id.rvChallenge)
 
-        // ✅ Dummy Data (Sprint 1)
         val listChallenge = listOf(
-            Challenge(
-                "Smart Waste Management",
-                "PT EcoTech",
-                "Lingkungan",
-                "Solusi pengelolaan sampah berbasis IoT untuk kota pintar."
-            ),
-            Challenge(
-                "AI for Education",
-                "EduTech Corp",
-                "IT",
-                "Platform pembelajaran adaptif menggunakan Artificial Intelligence."
-            ),
-            Challenge(
-                "Renewable Energy Tracker",
-                "GreenEnergy",
-                "Energi",
-                "Sistem monitoring energi terbarukan secara real-time."
-            )
+            Challenge("Smart Waste Management", "PT EcoTech", "Lingkungan", "Solusi pengelolaan sampah berbasis IoT."),
+            Challenge("AI for Education", "EduTech Corp", "IT", "Platform pembelajaran adaptif menggunakan AI."),
+            Challenge("Renewable Energy Tracker", "GreenEnergy", "Energi", "Sistem monitoring energi terbarukan.")
         )
 
-        // ✅ Adapter
         val adapter = ChallengeAdapter(listChallenge) { challenge ->
-
-            // Kirim data ke DetailFragment
-            val fragment = DetailFragment.newInstance(
-                challenge.judul,
-                challenge.perusahaan,
-                challenge.kategori,
-                challenge.deskripsi
-            )
-
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.mainContainer, fragment)
-                .addToBackStack(null)
-                .commit()
+            // Gunakan Action dari nav_graph
+            findNavController().navigate(R.id.action_berandaFragment_to_detailFragment)
         }
 
         rvChallenge.layoutManager = LinearLayoutManager(requireContext())

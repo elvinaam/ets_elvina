@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3F2FF">
+    android:background="@color/mist_blue">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:text="Judul Challenge"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#042E7B"
+            android:textColor="@color/navy_main"
             android:fontFamily="@font/plus_jakarta_sans_bold" />
 
         <!-- Perusahaan -->
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="Nama Perusahaan"
             android:textSize="14sp"
-            android:textColor="#212121"
+            android:textColor="@color/near_black"
             android:fontFamily="@font/poppins_regular"
             android:layout_marginTop="6dp"/>
 
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="Kategori"
             android:textSize="12sp"
-            android:textColor="#1883FF"
+            android:textColor="@color/electric_blue"
             android:layout_marginTop="6dp"
             android:fontFamily="@font/poppins_regular"/>
 
@@ -47,7 +47,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#99CAFF"
+            android:background="@color/sky_blue"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"/>
 
@@ -58,8 +58,20 @@
             android:layout_height="wrap_content"
             android:text="Deskripsi lengkap challenge..."
             android:textSize="14sp"
-            android:textColor="#212121"
+            android:textColor="@color/near_black"
             android:lineSpacingExtra="4dp"
+            android:fontFamily="@font/poppins_regular"/>
+
+        <!-- Button Kirim Proposal -->
+        <Button
+            android:id="@+id/btnKirimProposal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kirim Proposal"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/true_blue"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins_regular"/>
 
     </LinearLayout>

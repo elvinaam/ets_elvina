@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
+    <!-- Auth Flow -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.innobridge.auth.LoginFragment"
@@ -13,6 +14,16 @@
         <action
             android:id="@+id/action_loginFragment_to_registrasiFragment"
             app:destination="@id/registrasiFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_berandaFragment"
+            app:destination="@id/berandaFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_postChallengeFragment"
+            app:destination="@id/postChallengeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -20,5 +31,55 @@
         android:name="com.example.innobridge.auth.RegistrasiFragment"
         android:label="Registrasi"
         tools:layout="@layout/fragment_registrasi" />
+
+    <!-- Mahasiswa Flow -->
+    <fragment
+        android:id="@+id/berandaFragment"
+        android:name="com.example.innobridge.mahasiswa.BerandaFragment"
+        android:label="Beranda"
+        tools:layout="@layout/fragment_beranda">
+        <action
+            android:id="@+id/action_berandaFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/portfolioFragment"
+        android:name="com.example.innobridge.mahasiswa.PortfolioFragment"
+        android:label="Portfolio"
+        tools:layout="@layout/fragment_portfolio" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.innobridge.mahasiswa.DetailFragment"
+        android:label="Detail Tantangan"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_detailFragment_to_submissionFragment"
+            app:destination="@id/submissionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/submissionFragment"
+        android:name="com.example.innobridge.mahasiswa.SubmissionFragment"
+        android:label="Kirim Solusi"
+        tools:layout="@layout/fragment_submission" />
+
+    <!-- Perusahaan Flow -->
+    <fragment
+        android:id="@+id/postChallengeFragment"
+        android:name="com.example.innobridge.perusahaan.PostChallengeFragment"
+        android:label="Post Challenge"
+        tools:layout="@layout/fragment_post_challenge">
+        <action
+            android:id="@+id/action_postChallengeFragment_to_manageProposalFragment"
+            app:destination="@id/manageProposalFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/manageProposalFragment"
+        android:name="com.example.innobridge.perusahaan.ManageProposalFragment"
+        android:label="Manage Proposals"
+        tools:layout="@layout/fragment_manage_proposal" />
 
 </navigation>

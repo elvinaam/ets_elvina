@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.innobridge.R
 import java.util.Calendar
 
@@ -87,5 +88,8 @@ class PostChallengeFragment : Fragment() {
         etKategori.text.clear()
         etDeadline.text.clear()
         etDeskripsi.text.clear()
+
+        // Navigate to ManageProposalFragment using Navigation Component
+        findNavController().navigate(R.id.action_postChallengeFragment_to_manageProposalFragment)
     }
 }
