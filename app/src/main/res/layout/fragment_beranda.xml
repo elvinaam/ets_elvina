@@ -48,5 +48,35 @@
         android:clipToPadding="false"
         android:paddingBottom="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    <LinearLayout
+        android:id="@+id/layoutError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"> <ImageView
+        android:id="@+id/ivError"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/img_error_jembatan"
+        android:contentDescription="Gambar Error Jembatan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ups! Jembatan terputus."
+            android:textColor="@color/navy_main"
+            android:textSize="18sp"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gagal memuat data tantangan."
+            android:textColor="@color/near_black"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular" />
+    </LinearLayout>
 
 </LinearLayout>

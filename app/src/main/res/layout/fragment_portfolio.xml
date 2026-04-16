@@ -22,6 +22,37 @@
         android:layout_marginTop="12dp"
         android:layout_weight="1" />
 
+    <LinearLayout
+        android:id="@+id/layoutErrorPortfolio"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"> <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/img_error_jembatan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Portofolio Terputus"
+            android:textColor="@color/navy_main"
+            android:textSize="18sp"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gagal mengambil riwayat inovasimu."
+            android:textColor="@color/near_black"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textAlignment="center" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnToPostChallenge"
         android:layout_width="match_parent"
