@@ -26,10 +26,14 @@ class MainActivity : AppCompatActivity() {
         // Hubungkan BottomNav dengan NavController
         bottomNav.setupWithNavController(navController)
 
-        // Kontrol visibilitas BottomNav (Sembunyikan di Login & Registrasi)
+        // Kontrol visibilitas BottomNav
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment, R.id.registrasiFragment -> {
+                R.id.indexAwalFragment,
+                R.id.loginFragment,
+                R.id.loginMahasiswaFragment,
+                R.id.loginPerusahaanFragment,
+                R.id.registrasiFragment -> {
                     bottomNav.visibility = View.GONE
                 }
                 else -> {

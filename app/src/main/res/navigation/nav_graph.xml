@@ -3,9 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/indexAwalFragment">
 
     <!-- Auth Flow -->
+    <fragment
+        android:id="@+id/indexAwalFragment"
+        android:name="com.example.innobridge.auth.IndexAwalFragment"
+        android:label="Index Awal"
+        tools:layout="@layout/fragment_index_awal">
+        <action
+            android:id="@+id/action_indexAwalFragment_to_loginMahasiswaFragment"
+            app:destination="@id/loginMahasiswaFragment" />
+        <action
+            android:id="@+id/action_indexAwalFragment_to_loginPerusahaanFragment"
+            app:destination="@id/loginPerusahaanFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.innobridge.auth.LoginFragment"
@@ -27,10 +40,51 @@
     </fragment>
 
     <fragment
+        android:id="@+id/loginMahasiswaFragment"
+        android:name="com.example.innobridge.auth.LoginMahasiswaFragment"
+        android:label="Login Mahasiswa"
+        tools:layout="@layout/fragment_login_mahasiswa">
+        <action
+            android:id="@+id/action_loginMahasiswaFragment_to_registrasiFragment"
+            app:destination="@id/registrasiFragment" />
+        <action
+            android:id="@+id/action_loginMahasiswaFragment_to_berandaFragment"
+            app:destination="@id/berandaFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginPerusahaanFragment"
+        android:name="com.example.innobridge.auth.LoginPerusahaanFragment"
+        android:label="Login Perusahaan"
+        tools:layout="@layout/fragment_login_perusahaan">
+        <action
+            android:id="@+id/action_loginPerusahaanFragment_to_registrasiFragment"
+            app:destination="@id/registrasiFragment" />
+        <action
+            android:id="@+id/action_loginPerusahaanFragment_to_portfolioFragment"
+            app:destination="@id/portfolioFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
         android:id="@+id/registrasiFragment"
         android:name="com.example.innobridge.auth.RegistrasiFragment"
         android:label="Registrasi"
-        tools:layout="@layout/fragment_registrasi" />
+        tools:layout="@layout/fragment_registrasi">
+        <action
+            android:id="@+id/action_registrasiFragment_to_berandaFragment"
+            app:destination="@id/berandaFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registrasiFragment_to_portfolioFragment"
+            app:destination="@id/portfolioFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <!-- Mahasiswa Flow -->
     <fragment
@@ -47,7 +101,11 @@
         android:id="@+id/portfolioFragment"
         android:name="com.example.innobridge.mahasiswa.PortfolioFragment"
         android:label="Portfolio"
-        tools:layout="@layout/fragment_portfolio" />
+        tools:layout="@layout/fragment_portfolio">
+        <action
+            android:id="@+id/action_portfolioFragment_to_postChallengeFragment"
+            app:destination="@id/postChallengeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/detailFragment"
